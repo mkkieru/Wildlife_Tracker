@@ -1,0 +1,41 @@
+{{#partial "content"}}
+
+        <h1>Add an animal</h1>
+
+        <form action="/newAnimal" method="POST">
+
+            <label for="name">Animal name</label>
+            <input type="text" name="name" >
+
+
+            <label for="name">Animal Species</label>
+            <input type="text" name="species">
+
+            <button type="submit" class="btn btn-default">Go!</button>
+        </form>
+
+        <h1>Animal if endangered</h1>
+        <form action="/newEndangeredAnimal" method="POST">
+
+            <label for="name">Animal name</label>
+            <input type="text" name="name" >
+
+
+            <label for="species">Animal Species</label>
+            <input type="text" name="species">
+
+            <label for="status">Animal status</label>
+            <input type="text" name="status">
+
+            <label for="health">Animal health</label>
+            <input type="text" name="health">
+
+            <label for="age">Animal age</label>
+            <input type="text" name="age">
+
+            <button type="submit" class="btn btn-default">Go!</button>
+        </form>
+
+{{/partial}}
+
+{{> layout.hbs}}

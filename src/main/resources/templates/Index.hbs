@@ -1,0 +1,14 @@
+{{#partial "content"}}
+    {{#if animal}}
+        {{#each animal }}
+            <p>Current Animal : {{name}}</p>
+        {{/each}}
+
+    {{else}}
+        <a href="/animalForm">Add a new animal</a> <br>
+    {{/if}}
+
+    <a href="/animalForm">Add a new animal</a>
+{{/partial}}
+
+{{> layout.hbs}}
