@@ -8,7 +8,18 @@
         <a href="/animalForm">Add a new animal</a> <br>
     {{/if}}
 
+    <h1>ALL ANIMALS</h1>
+    {{#if endangeredAnimal}}
+        {{#each endangeredAnimal }}
+            <p>Current Endangered Animal : {{name}}</p>
+        {{/each}}
+
+    {{else}}
+        <a href="/animalForm">Add a new animal</a> <br>
+    {{/if}}
+
     <a href="/animalForm">Add a new animal</a>
+    <a href="/clearTable">Delete all animal entries</a>
 {{/partial}}
 
 {{> layout.hbs}}

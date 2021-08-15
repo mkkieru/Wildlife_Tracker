@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import DAO.Sql2oAnimalsDao;
 import DAO.Sql2oEndangeredAnimalsDao;
@@ -24,8 +21,14 @@ public class App {
         //display all animals on homepage
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
+
             List<Animals> animal = animalDao.getAll();
             model.put("animal", animal);
+
+
+            List<EndangeredAnimal> endangeredAnimal = endangeredAnimalDao.getAll();
+            model.put("endangeredAnimal", endangeredAnimal);
+
             return new ModelAndView(model, "Index.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -72,13 +75,13 @@ public class App {
             return null;
         }, new HandlebarsTemplateEngine());
 
-       //clear animals database table
-        post("/ClearAllAnimals", (request, response) -> {
-            Map<String,Object> model = new HashMap<>();
+        //Delete all animal entries
+        get("/clearTable",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
             animalDao.clearAllAnimals();
+
             response.redirect("/success");
             return null;
         }, new HandlebarsTemplateEngine());
-
     }
 }
