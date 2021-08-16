@@ -26,12 +26,11 @@ public class App {
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
 
-            List<Animals> animal = animalDao.getAll();
-            model.put("animal", animal);
-
-
             List<EndangeredAnimal> endangeredAnimal = endangeredAnimalDao.getAll();
             model.put("endangeredAnimal", endangeredAnimal);
+
+            List<Animals> animal = animalDao.getAll();
+            model.put("animal", animal);
 
             return new ModelAndView(model, "Index.hbs");
         }, new HandlebarsTemplateEngine());
@@ -65,7 +64,7 @@ public class App {
 
            String name = request.queryParams("name");
            String species = request.queryParams("species");
-           String stringLocationid = request.queryParams("Locationid");
+           String stringLocationid = request.queryParams("locationId");
 
            Animals newAnimal = new Animals(name,species,stringLocationid);
            animalDao.add(newAnimal);
@@ -80,10 +79,10 @@ public class App {
 
             String name = request.queryParams("name");
             String species = request.queryParams("species");
+            String stringLocationid = request.queryParams("locationId");
             String status = request.queryParams("status");
             String health = request.queryParams("health");
             String age = request.queryParams("age");
-            String stringLocationid = request.queryParams("Locationid");
 
             EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal(name,species,status,health,age,stringLocationid);
             endangeredAnimalDao.add(newEndangeredAnimal);

@@ -1,7 +1,7 @@
 package models;
 
 public class Location {
-    private Integer id = 0;
+    private Integer id;
     private String location;
 
     public Location(String location ){
@@ -16,7 +16,5 @@ public class Location {
         this.id = id;
     }
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getId() { return id; }
 }

@@ -6,16 +6,16 @@ public class Animals {
     private Integer id ;
     private String name ;
     private String species;
-    private String locationid;
+    private String locationId;
+    private String status = "Not Endangered";
+    private String health = "Not indicated";
+    private String age = "Not indicated";
 
-    public Animals(String name, String Species, String locationid){
+    public Animals(String name, String Species, String locationId){
         this.name = name;
         this.species = Species;
-        this.locationid = locationid;
+        this.locationId = locationId;
 
-    }
-
-    public <T> Animals(List<T> executeAndFetch) {
     }
 
     public void setId(Integer id) {
@@ -32,7 +32,11 @@ public class Animals {
 
     public String getSpecies() { return species; }
 
-    public String getLocationid() {
-        return locationid;
-    }
+    public String getLocationId() { return locationId; }
+
+    public String getStatus() { return status; }
+
+    public String getHealth() { return health; }
+
+    public String getAge() {  return age; }
 }

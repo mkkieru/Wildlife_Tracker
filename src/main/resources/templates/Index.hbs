@@ -1,24 +1,54 @@
 {{#partial "content"}}
+    <h1>ANIMALS SPOTTED IN THE AREA</h1>
     {{#if animal}}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">SPECIES</th>
+                </tr>
+            </thead>
+            <tbody>
         {{#each animal }}
-            <p>Current Animal : {{name}}</p>
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{name}}</td>
+                    <td>{{species}}</td>
+                </tr>
         {{/each}}
+            </tbody>
 
+        </table>
     {{else}}
-        <a href="/animalForm">Add a new animal</a> <br>
     {{/if}}
-
-    <h1>ALL ANIMALS</h1>
     {{#if endangeredAnimal}}
-        {{#each endangeredAnimal }}
-            <p>Current Endangered Animal : {{name}}</p>
-        {{/each}}
-
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">NAME</th>
+                <th scope="col">SPECIES</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">HEALTH</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each endangeredAnimal }}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{name}}</td>
+                    <td>{{species}}</td>
+                    <td>{{status}}</td>
+                    <td>{{health}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
     {{else}}
-        <a href="/animalForm">Add a new animal</a> <br>
     {{/if}}
 
-    <a href="/animalForm">Add a new animal</a>
+    <a href="/animalForm">Add a new animal</a><br>
     <a href="/clearTable">Delete all animal entries</a>
 {{/partial}}
 

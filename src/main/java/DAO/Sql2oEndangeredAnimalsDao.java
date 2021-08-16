@@ -21,15 +21,14 @@ public class Sql2oEndangeredAnimalsDao implements EndangeredAnimalsDao {
     @Override
     public List<EndangeredAnimal> getAll() {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM animals ")//raw sql
+            return con.createQuery("SELECT * FROM animals WHERE status = 'Endangered'")//raw sql
                     .executeAndFetch(EndangeredAnimal.class); //fetch a list
         }
     }
 
-
     @Override
     public void add(EndangeredAnimal EndangeredAnimalToBeAdded) {
-        String sql = "INSERT INTO animals (name,species,status,health,age,locationid) VALUES (:name,:species,:status,:health,:age,:locationid)"; //raw sql
+        String sql = "INSERT INTO animals (name,species,status,health,age,locationid) VALUES (:name,:species,:status,:health,:age,:locationId)"; //raw sql
         try(Connection con = sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
                     .bind(EndangeredAnimalToBeAdded) //map my argument onto the query so we can use information from it

@@ -20,7 +20,7 @@ public class AnimalsTest {
     @Test
     public void getLocationid(){
         Animals newAnimal = new Animals("Mark","Human Being","2");
-        Assert.assertTrue("2"==newAnimal.getLocationid());
+        Assert.assertTrue("2"==newAnimal.getLocationId());
     }
 
     @Test

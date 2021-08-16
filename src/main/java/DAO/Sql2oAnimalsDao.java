@@ -21,13 +21,13 @@ public class Sql2oAnimalsDao implements AnimalsDao {
 
     @Override
     public void add(Animals animal) {
-        String sql = "INSERT INTO animals (name, species,status,locationid) VALUES (:name, :species,'Not endangered',:locationid)";
-        try(Connection con = sql2o.open()){
-            int id = (int) con.createQuery(sql, true)
-                    .bind(animal) //use name and location from match object for sql
-                    .executeUpdate()
-                    .getKey();
-            animal.setId(id);
+        String sql = "INSERT INTO animals (name,species,status,health,age,locationid) VALUES (:name,:species,:status,:health,:age,:locationId)";
+        try(Connection con = sql2o.open()){ //try to open a connection
+            int id = (int) con.createQuery(sql, true) //make a new variable
+                    .bind(animal) //map my argument onto the query so we can use information from it
+                    .executeUpdate() //run it all
+                    .getKey(); //int id is now the row number (row “key”) of db
+            animal.setId(id); //update object to set id now from database
             showMessageDialog(null, "Animal successfully added");
         } catch (Sql2oException ex) {
             showMessageDialog(null, "Animal NOT added");
@@ -37,7 +37,7 @@ public class Sql2oAnimalsDao implements AnimalsDao {
     @Override
     public List<Animals> getAll() {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT name, species FROM animals WHERE status = 'Not endangered'")//raw sql
+            return con.createQuery("SELECT name, species FROM animals WHERE status = 'Not Endangered'")//raw sql
                     .executeAndFetch(Animals.class); //fetch a list
         }
     }

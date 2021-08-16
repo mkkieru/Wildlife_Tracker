@@ -1,74 +1,78 @@
 {{#partial "content"}}
-        <h1>ADD NON-ENDANGERED ANIMAL</h1>
-        <form action="/newAnimal" method="POST">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>NON-ENDANGERED ANIMAL</h3>
+            <!--<form action="/newAnimal" method="POST">-->
+            <form action="/newAnimal" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Animal Name</label>
+                    <input type="text" class="form-control" name="name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="species" class="form-label">Animal species</label>
+                    <input type="text" class="form-control" name="species">
+                </div>
+                <div class="mb-3">
+                    <label for="locationId" class="form-label">Location Sighted</label>
+                    <select class="form-select" aria-label="Default select example" name="locationId">
+                        {{#if locations}}
+                            {{#each locations}}
+                                <option value="{{id}}" >{{location}}</option>
+                            {{/each}}
+                        {{else}}
+                            <p>Please add a location </p>
+                        {{/if}}
+                    </select>
+                </div>
+                <p><button type="submit" class="btn btn-primary">Submit</button></p>
+            </form>
+        </div>
 
-            <div class="mb-3">
-                <label for="name" class="form-label">Animal Name</label>
-                <input type="text" class="form-control" name="name" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="species" class="form-label">Animal species</label>
-                <input type="text" class="form-control" name="species">
-            </div>
-            <!--<div class="mb-3">
-                <label for="Locationid" class="form-label">Locationid</label>
-                <input type="number" class="form-control" name="Locationid">
-            </div>-->
+        <div class="col-md-6">
+            <h1>Endangered Animal</h1>
+            <form action="/newEndangeredAnimal" method="POST">
 
-            <select class="form-select" aria-label="Default select example" name="locationId">
-                {{#if locations}}
-                    {{#each locations}}
-                        <option value={{id}} >name : {{location}}</option>
-                    {{/each}}
-                {{else}}
-                    <p>Please add a location </p>
-                {{/if}}
-                <option value="volvo">Volvo</option>
-            </select>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Animal Name</label>
+                    <input type="text" class="form-control" name="name" aria-describedby="emailHelp">
+                </div>
 
-            <p><button type="submit" class="btn btn-primary">Submit</button></p>
-        </form>
+                <div class="mb-3">
+                    <label for="species" class="form-label">Animal species</label>
+                    <input type="text" class="form-control" name="species">
+                </div>
 
-        <h1>Animal if endangered</h1>
-        <form action="/newEndangeredAnimal" method="POST">
+                <div class="mb-3">
+                    <label for="status" class="form-label">Animal status</label>
+                    <input type="text" class="form-control" name="status">
+                </div>
 
-            <div class="mb-3">
-                <label for="name" class="form-label">Animal Name</label>
-                <input type="text" class="form-control" name="name" aria-describedby="emailHelp">
-            </div>
+                <div class="mb-3">
+                    <label for="health" class="form-label">Animal health</label>
+                    <input type="text" class="form-control" name="health">
+                </div>
 
-            <div class="mb-3">
-                <label for="species" class="form-label">Animal species</label>
-                <input type="text" class="form-control" name="species">
-            </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Animal age</label>
+                    <input type="text" class="form-control" name="age">
+                </div>
+                <div class="mb-3">
+                    <label for="locationId" class="form-label">Location Sighted<</label>
+                    <select class="form-select" aria-label="Default select example" name="locationId">
+                        {{#if locations}}
+                            {{#each locations}}
+                                <option value="{{id}}" >{{location}}</option>
+                            {{/each}}
+                        {{else}}
+                            <p>Please add a location </p>
+                        {{/if}}
+                    </select>
+                </div>
 
-            <div class="mb-3">
-                <label for="status" class="form-label">Animal status</label>
-                <input type="text" class="form-control" name="status">
-            </div>
-
-            <div class="mb-3">
-                <label for="health" class="form-label">Animal health</label>
-                <input type="text" class="form-control" name="health">
-            </div>
-
-            <div class="mb-3">
-                <label for="age" class="form-label">Animal age</label>
-                <input type="text" class="form-control" name="age">
-            </div>
-            <select class="form-select" aria-label="Default select example" name="locationId">
-                {{#if locations}}
-                    {{#each locations}}
-                        <option value={{id}} >name : {{location}}</option>
-                    {{/each}}
-                {{else}}
-                    <p>Please add a location </p>
-                {{/if}}
-                <option value="volvo">Volvo</option>
-            </select>
-
-            <p><button type="submit" class="btn btn-default">Go!</button></p>
-        </form>
+                <p><button type="submit" class="btn btn-primary">Submit</button></p>
+            </form>
+        </div>
+    </div>
 
 {{/partial}}
 
