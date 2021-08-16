@@ -21,7 +21,7 @@ public class Sql2oAnimalsDao implements AnimalsDao {
 
     @Override
     public void add(Animals animal) {
-        String sql = "INSERT INTO animals (name, species,status) VALUES (:name, :species,'Not endangered')";
+        String sql = "INSERT INTO animals (name, species,status,locationid) VALUES (:name, :species,'Not endangered',:locationid)";
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(animal) //use name and location from match object for sql

@@ -1,18 +1,22 @@
 package models;
 
 public class Location {
-    private Integer id;
-    private String name;
+    private Integer id = 0;
+    private String location;
 
-    public Location(String name ){
-        this.name = name;
+    public Location(String location ){
+        this.location = location;
     }
 
-    public String getName() {
-        return name;
+    public String getLocation() {
+        return location;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }

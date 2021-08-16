@@ -4,8 +4,6 @@ import models.Animals;
 import org.junit.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-
-import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -57,7 +55,7 @@ public class Sql2oAnimalsDaoTest {
 
     // helper method
     public Animals setupNewAnimal(){
-        return new Animals("Mark","Human Being");
+        return new Animals("Mark","Human Being","2");
     }
 
 

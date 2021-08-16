@@ -6,9 +6,9 @@ CREATE TABLE animals (
         species VARCHAR,
         status varchar,
         health varchar,
-        age varchar
+        age varchar,
+        locationID varchar
 );
 
 CREATE TABLE sightings (id SERIAL PRIMARY KEY, location VARCHAR);
-
 CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;

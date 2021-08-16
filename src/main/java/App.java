@@ -2,8 +2,10 @@ import java.util.*;
 
 import DAO.Sql2oAnimalsDao;
 import DAO.Sql2oEndangeredAnimalsDao;
+import DAO.Sql2oLocationDao;
 import models.Animals;
 import models.EndangeredAnimal;
+import models.Location;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -12,11 +14,13 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args) { //type “psvm + tab” to autocreate this
         staticFileLocation("/public");
-        String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";      //connect to todolist, not todolist_test!
+        String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
         Sql2o sql2o = new Sql2o(connectionString, "damark", "password");
 
         Sql2oAnimalsDao animalDao = new Sql2oAnimalsDao(sql2o);
         Sql2oEndangeredAnimalsDao endangeredAnimalDao = new Sql2oEndangeredAnimalsDao(sql2o);
+        Sql2oLocationDao locationDao = new Sql2oLocationDao(sql2o);
+
 
         //display all animals on homepage
         get("/", (req, res) -> {
@@ -35,10 +39,21 @@ public class App {
         //get form to add an animal (Also endangered ones)
         get("/animalForm", (request, response) -> {
             Map<String,Object> model = new HashMap<>();
-            return new ModelAndView("model", "Animal-Form.hbs");
+
+            //INSERT INTO sightings (location) VALUES (:location)
+            Location location = new Location("Near The River");
+            Location location2 = new Location("Near The Village");
+
+           //locationDao.add(location);
+           //locationDao.add(location2);
+
+            List<Location> locations = locationDao.getAll();
+            model.put("locations", locations);
+
+            return new ModelAndView(model, "Animal-Form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //display after adding a new animal to table animals
+        //Success after adding a new animal to table animals
         get("/success", (request, response) -> {
             Map<String,Object> model = new HashMap<>();
             return new ModelAndView("model", "success.hbs");
@@ -50,9 +65,10 @@ public class App {
 
            String name = request.queryParams("name");
            String species = request.queryParams("species");
+           String stringLocationid = request.queryParams("Locationid");
 
-           Animals animal = new Animals(name, species);
-           animalDao.add(animal);
+           Animals newAnimal = new Animals(name,species,stringLocationid);
+           animalDao.add(newAnimal);
 
            response.redirect("/success");
            return null;
@@ -67,9 +83,10 @@ public class App {
             String status = request.queryParams("status");
             String health = request.queryParams("health");
             String age = request.queryParams("age");
+            String stringLocationid = request.queryParams("Locationid");
 
-            EndangeredAnimal endangeredAnimal = new EndangeredAnimal(name,species,status,health,age);
-            endangeredAnimalDao.add(endangeredAnimal);
+            EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal(name,species,status,health,age,stringLocationid);
+            endangeredAnimalDao.add(newEndangeredAnimal);
 
             response.redirect("/success");
             return null;

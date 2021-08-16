@@ -11,9 +11,15 @@ public class locationTest {
         Assert.assertTrue(newLocation instanceof Location);
     }
     @Test
-    public void getName(){
+    public void getLocation(){
         Location newLocation = new Location("Near the river");
-        Assert.assertEquals("Near the river", newLocation.getName());
+        Assert.assertEquals("Near the river", newLocation.getLocation());
     }
+    @Test
+    public void getID(){
+        Location newLocation = new Location("Near the river");
+        Assert.assertTrue(0 == newLocation.getId());
+    }
+
 
 }

@@ -26,18 +26,19 @@ public class Sql2oEndangeredAnimalsDao implements EndangeredAnimalsDao {
         }
     }
 
+
     @Override
     public void add(EndangeredAnimal EndangeredAnimalToBeAdded) {
-        //String sql = "INSERT INTO tasks (description) VALUES (:description)"; //raw sql
-        String sql = "INSERT INTO animals (name,species,status,health,age) VALUES (:name,:species,:status,:health,:age)"; //raw sql
+        String sql = "INSERT INTO animals (name,species,status,health,age,locationid) VALUES (:name,:species,:status,:health,:age,:locationid)"; //raw sql
         try(Connection con = sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
                     .bind(EndangeredAnimalToBeAdded) //map my argument onto the query so we can use information from it
                     .executeUpdate() //run it all
                     .getKey(); //int id is now the row number (row “key”) of db
             EndangeredAnimalToBeAdded.setId(id); //update object to set id now from database
+            showMessageDialog(null, "Animal successfully added");
         } catch (Sql2oException ex) {
-            System.out.println(ex); //oops we have an error!
+            showMessageDialog(null, "Animal NOT added");
         }
     }
 

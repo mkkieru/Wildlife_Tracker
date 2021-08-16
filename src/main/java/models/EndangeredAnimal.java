@@ -8,8 +8,8 @@ public class EndangeredAnimal extends Animals{
     private final String health;
     private final String age;
 
-    public EndangeredAnimal(String name, String Species,String status, String health, String age) {
-        super(name,Species);
+    public EndangeredAnimal(String name, String Species,String status, String health, String age,String locationid) {
+        super(name,Species,locationid);
         this.status = status;
         this.age = age;
         this.health = health;
