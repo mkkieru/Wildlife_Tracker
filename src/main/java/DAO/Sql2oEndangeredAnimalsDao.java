@@ -21,7 +21,7 @@ public class Sql2oEndangeredAnimalsDao implements EndangeredAnimalsDao {
     @Override
     public List<EndangeredAnimal> getAll() {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM animals WHERE status = 'Endangered'")//raw sql
+            return con.createQuery("SELECT * FROM animals")//raw sql
                     .executeAndFetch(EndangeredAnimal.class); //fetch a list
         }
     }

@@ -1,29 +1,30 @@
 {{#partial "content"}}
-    <h1>ANIMALS SPOTTED IN THE AREA</h1>
-    {{#if animal}}
+    <h1>ENDANGERED ANIMALS </h1>
+    {{#if endangeredAnimal}}
         <table class="table">
             <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col">SPECIES</th>
-                </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">NAME</th>
+                <th scope="col">SPECIES</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">HEALTH</th>
+            </tr>
             </thead>
             <tbody>
-        {{#each animal }}
+            {{#each endangeredAnimal }}
                 <tr>
                     <th scope="row">{{id}}</th>
                     <td>{{name}}</td>
                     <td>{{species}}</td>
                     <td>{{locationId}}</td>
+                    <td>{{health}}</td>
                 </tr>
-        {{/each}}
+            {{/each}}
             </tbody>
-
         </table>
     {{else}}
     {{/if}}
-
 
     <a href="/animalForm">Add a new animal</a><br>
     <a href="/clearTable">Delete all animal entries</a>

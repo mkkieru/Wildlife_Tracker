@@ -26,9 +26,6 @@ public class App {
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
 
-            List<EndangeredAnimal> endangeredAnimal = endangeredAnimalDao.getAll();
-            model.put("endangeredAnimal", endangeredAnimal);
-
             List<Animals> animal = animalDao.getAll();
             model.put("animal", animal);
 
@@ -42,6 +39,9 @@ public class App {
             //INSERT INTO sightings (location) VALUES (:location)
             Location location = new Location("Near The River");
             Location location2 = new Location("Near The Village");
+            Location location3 = new Location("Near The Cliff");
+            Location location4 = new Location("Near The    ");
+            Location location5 = new Location("Near The Village");
 
            //locationDao.add(location);
            //locationDao.add(location2);
@@ -55,7 +55,16 @@ public class App {
         //Success after adding a new animal to table animals
         get("/success", (request, response) -> {
             Map<String,Object> model = new HashMap<>();
-            return new ModelAndView("model", "success.hbs");
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/EndangeredAnimal", (request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+
+            List<EndangeredAnimal> endangeredAnimal = endangeredAnimalDao.getAll();
+            model.put("endangeredAnimal", endangeredAnimal);
+
+            return new ModelAndView(model, "Endangered-Animals.hbs");
         }, new HandlebarsTemplateEngine());
 
         //Post form to add new animal
@@ -87,7 +96,7 @@ public class App {
             EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal(name,species,status,health,age,stringLocationid);
             endangeredAnimalDao.add(newEndangeredAnimal);
 
-            response.redirect("/success");
+            response.redirect("/EndangeredAnimal");
             return null;
         }, new HandlebarsTemplateEngine());
 
