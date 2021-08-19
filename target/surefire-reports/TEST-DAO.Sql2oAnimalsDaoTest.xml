@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="1" name="DAO.Sql2oAnimalsDaoTest" time="2.917" errors="1" skipped="0">
+<testsuite tests="2" failures="1" name="DAO.Sql2oAnimalsDaoTest" time="2.957" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.11+9"/>
@@ -62,7 +62,7 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="DAO.Sql2oAnimalsDaoTest" name="addingAnimal" time="2.899">
+  <testcase classname="DAO.Sql2oAnimalsDaoTest" name="addingAnimal" time="2.938">
     <failure type="java.lang.AssertionError">java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -104,7 +104,7 @@
     <system-out>clearing database
 </system-out>
   </testcase>
-  <testcase classname="DAO.Sql2oAnimalsDaoTest" name="addingAnimalSetsId" time="0.018">
+  <testcase classname="DAO.Sql2oAnimalsDaoTest" name="addingAnimalSetsId" time="0.019">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at DAO.Sql2oAnimalsDaoTest.addingAnimalSetsId(Sql2oAnimalsDaoTest.java:51)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

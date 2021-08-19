@@ -37,7 +37,7 @@ public class Sql2oAnimalsDao implements AnimalsDao {
     @Override
     public List<Animals> getAll() {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT name, species FROM animals")//raw sql
+            return con.createQuery("SELECT * FROM animals")//raw sql
                     .executeAndFetch(Animals.class); //fetch a list
         }
     }

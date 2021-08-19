@@ -42,4 +42,14 @@ public class Sql2oLocationDao implements LocationDao {
         }
 
     }
+    @Override
+    public void clearAllAnimals() {
+        String sql = "DELETE from sightings";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
 }

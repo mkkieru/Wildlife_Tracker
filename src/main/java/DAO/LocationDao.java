@@ -11,4 +11,6 @@ public interface LocationDao {
 
     //CREATE
     void add (Location location);
+
+    void clearAllAnimals();
 }

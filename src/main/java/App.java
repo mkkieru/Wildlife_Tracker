@@ -37,16 +37,20 @@ public class App {
             Map<String,Object> model = new HashMap<>();
 
             //INSERT INTO sightings (location) VALUES (:location)
-            Location location = new Location("Near The River");
-            Location location2 = new Location("Near The Village");
-            Location location3 = new Location("Near The Cliff");
-            Location location4 = new Location("Near The    ");
-            Location location5 = new Location("Near The Village");
-
-           //locationDao.add(location);
-           //locationDao.add(location2);
-
             List<Location> locations = locationDao.getAll();
+            if (locations.size()==0){
+                Location location = new Location("Near The River");
+                Location location2 = new Location("Near The Village");
+                Location location3 = new Location("Near The Cliff");
+                Location location4 = new Location("Near The Camping Area");
+                Location location5 = new Location("Near The Village");
+
+               locationDao.add(location);
+               locationDao.add(location2);
+               locationDao.add(location3);
+               locationDao.add(location4);
+               locationDao.add(location5);
+            }
             model.put("locations", locations);
 
             return new ModelAndView(model, "Animal-Form.hbs");
@@ -94,6 +98,7 @@ public class App {
             String age = request.queryParams("age");
 
             EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal(name,species,status,health,age,stringLocationid);
+
             endangeredAnimalDao.add(newEndangeredAnimal);
 
             response.redirect("/EndangeredAnimal");

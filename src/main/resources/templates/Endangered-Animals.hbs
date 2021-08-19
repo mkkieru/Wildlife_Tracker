@@ -17,7 +17,8 @@
                     <th scope="row">{{id}}</th>
                     <td>{{name}}</td>
                     <td>{{species}}</td>
-                    <td>{{locationId}}</td>
+                    <!--<td>{{locationId}}</td>-->
+                    <td>{{status}}</td>
                     <td>{{health}}</td>
                 </tr>
             {{/each}}
@@ -26,8 +27,6 @@
     {{else}}
     {{/if}}
 
-    <a href="/animalForm">Add a new animal</a><br>
-    <a href="/clearTable">Delete all animal entries</a>
 {{/partial}}
 
 {{> layout.hbs}}
