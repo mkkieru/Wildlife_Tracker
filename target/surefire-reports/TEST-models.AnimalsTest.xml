@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="models.AnimalsTest" time="0.003" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="models.AnimalsTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.11+9"/>
@@ -64,6 +64,6 @@
   </properties>
   <testcase classname="models.AnimalsTest" name="newAnimal_InstatiatesANewAnimal_true" time="0"/>
   <testcase classname="models.AnimalsTest" name="getSpecies" time="0"/>
-  <testcase classname="models.AnimalsTest" name="getName" time="0.003"/>
+  <testcase classname="models.AnimalsTest" name="getName" time="0"/>
   <testcase classname="models.AnimalsTest" name="getLocationid" time="0"/>
 </testsuite>

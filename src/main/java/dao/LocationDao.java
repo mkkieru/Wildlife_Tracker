@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import models.Animals;
 import models.Location;
@@ -12,5 +12,5 @@ public interface LocationDao {
     //CREATE
     void add (Location location);
 
-    void clearAllAnimals();
+    void clearAllLocations();
 }

@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import models.*;
 import org.sql2o.Connection;
@@ -43,7 +43,7 @@ public class Sql2oLocationDao implements LocationDao {
 
     }
     @Override
-    public void clearAllAnimals() {
+    public void clearAllLocations() {
         String sql = "DELETE from sightings";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)

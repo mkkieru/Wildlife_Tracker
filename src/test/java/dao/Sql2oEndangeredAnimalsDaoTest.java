@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import junit.framework.TestCase;
 

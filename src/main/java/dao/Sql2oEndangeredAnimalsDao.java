@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import models.Animals;
 import models.EndangeredAnimal;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
-public class Sql2oEndangeredAnimalsDao implements EndangeredAnimalsDao {
+public class Sql2oEndangeredAnimalsDao implements DAO.EndangeredAnimalsDao {
 
     private final Sql2o sql2o;
 
@@ -21,7 +21,7 @@ public class Sql2oEndangeredAnimalsDao implements EndangeredAnimalsDao {
     @Override
     public List<EndangeredAnimal> getAll() {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM animals")//raw sql
+            return con.createQuery("SELECT * FROM animals WHERE status = 'Endangered'")//raw sql
                     .executeAndFetch(EndangeredAnimal.class); //fetch a list
         }
     }

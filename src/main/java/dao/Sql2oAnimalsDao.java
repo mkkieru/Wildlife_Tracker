@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import models.Animals;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
-public class Sql2oAnimalsDao implements AnimalsDao {
+public class Sql2oAnimalsDao implements DAO.AnimalsDao {
 
     private final Sql2o sql2o;
 

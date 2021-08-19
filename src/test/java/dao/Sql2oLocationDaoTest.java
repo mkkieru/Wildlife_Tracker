@@ -1,6 +1,7 @@
-package DAO;
+package dao;
 
 import models.Location;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -22,16 +23,16 @@ public class Sql2oLocationDaoTest{
         String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker_test";
         Sql2o sql2o = new Sql2o(connectionString, "damark", "password");
 
-        Sql2oAnimalsDao animalDao = new Sql2oAnimalsDao(sql2o);
+        Sql2oLocationDao locationDao = new Sql2oLocationDao(sql2o);
         conn = sql2o.open();
         System.out.println("connection established");
     }
 
-    /*@After
+    @After
     public void tearDown() throws Exception {
         System.out.println("Clearing databases");
-        locationDao.clearAllAnimals();
-    }*/
+        locationDao.clearAllLocations();
+    }
 
     @AfterClass // changed to @AfterClass (run once after all tests in this file completed)
     public static void shutDown() throws Exception { //changed to static and shutDown
@@ -39,24 +40,17 @@ public class Sql2oLocationDaoTest{
         System.out.println("connection closed");
     }
 
-    /*@Test
-    public void addingCategorySetsId() throws Exception {
-        Location location = new Location("Near the river");
-        int originalCategoryId = location.getId();
-        locationDao.add(location);
-        assertNotEquals(originalCategoryId, location.getId());
-    }*/
     @Test
     public void addedLocationsAreReturnedFromGetAll() {
-        Location location = new Location("Near the river");
-        locationDao.add(location);
+        Location location5 = new Location("Near The Village");
+        locationDao.add(location5);
         assertEquals(1, locationDao.getAll().size());
     }
     @Test
     public void addedLocationNamesAreReturnedFromGetAll(){
-        Location location = new Location("Near the river");
-        locationDao.add(location);
-        assertTrue( locationDao.getAll().contains(location));
+        Location location5 = new Location("Near The Village");
+        locationDao.add(location5);
+        assertTrue( locationDao.getAll().contains(location5));
     }
 
 

@@ -1,8 +1,8 @@
 import java.util.*;
 
-import DAO.Sql2oAnimalsDao;
-import DAO.Sql2oEndangeredAnimalsDao;
-import DAO.Sql2oLocationDao;
+import dao.Sql2oAnimalsDao;
+import dao.Sql2oEndangeredAnimalsDao;
+import dao.Sql2oLocationDao;
 import models.Animals;
 import models.EndangeredAnimal;
 import models.Location;
