@@ -39,9 +39,9 @@ public class AnimalsTest {
     @Test
     public void sethealthSetsCorrectly(){
         Animals newAnimal = new Animals("Mark","Human Being","2");
-        newAnimal.setHealth("sick");
+        newAnimal.setHealth("sick");*/
         Assert.assertEquals("sick", newAnimal.getHealth());
-    }*/
+    }
     @Test
     public void setStatusSetsCorrectly(){
         Animals newAnimal = new Animals("Mark","Human Being","2");
