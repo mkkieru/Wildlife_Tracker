@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: DAO.Sql2oLocationDaoTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.826 sec <<< FAILURE!
-addedLocationNamesAreReturnedFromGetAll(DAO.Sql2oLocationDaoTest)  Time elapsed: 0.009 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.173 sec <<< FAILURE!
+addedLocationNamesAreReturnedFromGetAll(DAO.Sql2oLocationDaoTest)  Time elapsed: 0.008 sec  <<< ERROR!
 java.lang.NullPointerException
 	at DAO.Sql2oLocationDaoTest.addedLocationNamesAreReturnedFromGetAll(Sql2oLocationDaoTest.java:58)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -37,7 +37,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-addedLocationsAreReturnedFromGetAll(DAO.Sql2oLocationDaoTest)  Time elapsed: 0.004 sec  <<< ERROR!
+addedLocationsAreReturnedFromGetAll(DAO.Sql2oLocationDaoTest)  Time elapsed: 0.012 sec  <<< ERROR!
 java.lang.NullPointerException
 	at DAO.Sql2oLocationDaoTest.addedLocationsAreReturnedFromGetAll(Sql2oLocationDaoTest.java:52)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
