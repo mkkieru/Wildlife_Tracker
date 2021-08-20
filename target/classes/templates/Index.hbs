@@ -8,6 +8,7 @@
                     <th scope="col">NAME</th>
                     <th scope="col">SPECIES</th>
                     <th scope="col">LOCATIONID</th>
+                    <th scope="col">DELETE</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,11 +18,38 @@
                     <td>{{name}}</td>
                     <td>{{species}}</td>
                     <td>{{locationId}}</td>
+                    <td>
+                        <form action="/animals/{{id}}/delete" method="get" id="form1">
+                            <button type="submit" class="btn btn-primary">Delete Animal</button>
+                        </form>
+                    </td>
                 </tr>
         {{/each}}
             </tbody>
 
         </table>
+
+    {{else}}
+    {{/if}}
+    {{#if location}}
+        <h3>Location Key</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">NAME</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each location }}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{location}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+
     {{else}}
     {{/if}}
 {{/partial}}

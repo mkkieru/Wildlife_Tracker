@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: models.EndangeredAnimalTest
+Test set: dao.Sql2oLocationDaoTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.121 sec

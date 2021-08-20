@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="models.AnimalsTest" time="0" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="dao.Sql2oLocationDaoTest" time="6.107" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.11+9"/>
@@ -62,14 +62,10 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="models.AnimalsTest" name="setNameLocationIdCorrectly" time="0"/>
-  <testcase classname="models.AnimalsTest" name="newAnimal_InstatiatesANewAnimal_true" time="0"/>
-  <testcase classname="models.AnimalsTest" name="getSpecies" time="0"/>
-  <testcase classname="models.AnimalsTest" name="setAgeSetsCorrectly" time="0"/>
-  <testcase classname="models.AnimalsTest" name="getName" time="0"/>
-  <testcase classname="models.AnimalsTest" name="setSpeciesSetsCorrectly" time="0"/>
-  <testcase classname="models.AnimalsTest" name="setStatusSetsCorrectly" time="0"/>
-  <testcase classname="models.AnimalsTest" name="getLocationid" time="0"/>
-  <testcase classname="models.AnimalsTest" name="sethealthSetsCorrectly" time="0"/>
-  <testcase classname="models.AnimalsTest" name="setNameSetsCorrectly" time="0"/>
+  <testcase classname="dao.Sql2oLocationDaoTest" name="deleteByIdDeletesCorrectAnimal" time="1.239"/>
+  <testcase classname="dao.Sql2oLocationDaoTest" name="clearAllLocationsDeletesAllAnimals" time="2.264"/>
+  <testcase classname="dao.Sql2oLocationDaoTest" name="addingLocationSetsId" time="0.887"/>
+  <testcase classname="dao.Sql2oLocationDaoTest" name="updateChangesLocationContent" time="0.768"/>
+  <testcase classname="dao.Sql2oLocationDaoTest" name="addedLocationsAreReturnedFromGetAll" time="0.904"/>
+  <testcase classname="dao.Sql2oLocationDaoTest" name="noLocationReturnsEmptyList" time="0.045"/>
 </testsuite>
