@@ -30,7 +30,7 @@ public class AnimalsTest {
         newAnimal.setLocationId("2");
         Assert.assertEquals("2", newAnimal.getLocationId());
     }
-    @Test
+    /*@Test
     public void setAgeSetsCorrectly(){
         Animals newAnimal = new Animals("Mark","Human Being","2");
         newAnimal.setAge("child");
@@ -47,7 +47,7 @@ public class AnimalsTest {
         Animals newAnimal = new Animals("Mark","Human Being","2");
         newAnimal.setStatus("endangered");
         Assert.assertEquals("endangered", newAnimal.getStatus());
-    }
+    }*/
     @Test
     public void getName(){
         Animals newAnimal = new Animals("Mark","Human Being","2");
