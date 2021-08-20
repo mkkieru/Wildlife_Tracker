@@ -113,5 +113,13 @@ public class App {
             response.redirect("/success");
             return null;
         }, new HandlebarsTemplateEngine());
+
+        get("/animals/:id/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfAnimalToDelete = Integer.parseInt(req.params("id"));
+            animalDao.deleteById(idOfAnimalToDelete);
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
     }
 }
