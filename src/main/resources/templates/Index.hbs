@@ -8,6 +8,7 @@
                     <th scope="col">NAME</th>
                     <th scope="col">SPECIES</th>
                     <th scope="col">LOCATIONID</th>
+                    <th scope="col">DELETE</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +18,11 @@
                     <td>{{name}}</td>
                     <td>{{species}}</td>
                     <td>{{locationId}}</td>
+                    <td>
+                        <form action="/animals/{{id}}/delete" method="get" id="form1">
+                            <button type="submit" class="btn btn-primary">Delete Animal</button>
+                        </form>
+                    </td>
                 </tr>
         {{/each}}
             </tbody>
