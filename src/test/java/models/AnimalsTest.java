@@ -41,13 +41,13 @@ public class AnimalsTest {
         Animals newAnimal = new Animals("Mark","Human Being","2");
         newAnimal.setHealth("sick");
         Assert.assertEquals("sick", newAnimal.getHealth());
-    }
+    }*/
     @Test
     public void setStatusSetsCorrectly(){
         Animals newAnimal = new Animals("Mark","Human Being","2");
         newAnimal.setStatus("endangered");
         Assert.assertEquals("endangered", newAnimal.getStatus());
-    }*/
+    }
     @Test
     public void getName(){
         Animals newAnimal = new Animals("Mark","Human Being","2");
