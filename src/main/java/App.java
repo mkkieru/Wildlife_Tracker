@@ -29,6 +29,9 @@ public class App {
             List<Animals> animal = animalDao.getAll();
             model.put("animal", animal);
 
+            List<Location> location = locationDao.getAll();
+            model.put("location", location);
+
             return new ModelAndView(model, "Index.hbs");
         }, new HandlebarsTemplateEngine());
 
