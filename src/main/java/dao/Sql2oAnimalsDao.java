@@ -10,7 +10,7 @@ import java.util.List;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
-public class Sql2oAnimalsDao implements DAO.AnimalsDao {
+public class Sql2oAnimalsDao implements AnimalsDao {
 
     private final Sql2o sql2o;
 
@@ -44,21 +44,36 @@ public class Sql2oAnimalsDao implements DAO.AnimalsDao {
 
     @Override
     public Animals findById(int id) {
-        return null;
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM animals WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Animals.class);
+        }
     }
 
     @Override
-    public List<Animals> getAllTasksByCategory(int categoryId) {
-        return null;
-    }
-
-    @Override
-    public void update(int id, String name) {
-
+    public void update(int id, String newName){
+        String sql = "UPDATE animals SET name = :name WHERE id=:id";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("name", newName)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override
     public void deleteById(int id) {
+        String sql = "DELETE from animals WHERE id=:id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
 
     }
 

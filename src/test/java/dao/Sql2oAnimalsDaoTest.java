@@ -1,16 +1,15 @@
 package dao;
 
-import junit.framework.TestCase;
 import models.Animals;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-import java.sql.Connection;
-
 import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class Sql2oAnimalsDaoTest{
 
@@ -26,6 +25,7 @@ public class Sql2oAnimalsDaoTest{
         Sql2o sql2o = new Sql2o(connectionString, "damark", "password");
 
         animalsDao = new Sql2oAnimalsDao(sql2o);
+        conn=sql2o.open();
         System.out.println("connection established");
     }
 
@@ -42,10 +42,52 @@ public class Sql2oAnimalsDaoTest{
     }
 
     @Test
+    public void addingAnimalSetsId() throws Exception {
+        Animals animal = new Animals("Scooby","Dog","2");
+        Integer originalCategoryId = animal.getId();
+        animalsDao.add(animal);
+        assertNotEquals(originalCategoryId, animal.getId());
+    }
+
+    @Test
     public void addedAnimalsAreReturnedFromGetAll() throws Exception {
         Animals animal = new Animals("Scooby","Dog","2");
         animalsDao.add(animal);
         assertEquals(1, animalsDao.getAll().size());
     }
+    @Test
+    public void noAnimalsReturnsEmptyList() throws Exception {
+        assertEquals(0, animalsDao.getAll().size());
+    }
+    @Test
+    public void deleteByIdDeletesCorrectAnimal() throws Exception {
+        Animals animal = new Animals("Scooby","Dog","2");
+        animalsDao.add(animal);
+        animalsDao.deleteById(animal.getId());
+        assertEquals(0, animalsDao.getAll().size());
+    }
+    @Test
+    public void clearAllAnimalsDeletesAllAnimals() throws Exception {
+        Animals animal = new Animals("Scooby","Dog","2");
+        animalsDao.add(animal);
+        Animals animal2 = new Animals("Scooby","Dog","2");
+        animalsDao.add(animal2);
+
+        animalsDao.clearAllAnimals();
+
+        assertEquals(0, animalsDao.getAll().size());
+    }
+
+    @Test
+    public void updateChangesAnimalsContent() throws Exception {
+        String initialDescription = "Yardwork";
+        Animals animal = new Animals(initialDescription,"Dog","2");
+        animalsDao.add(animal);
+        animalsDao.update(animal.getId(),"Cleaning");
+
+        Animals updatedCategory = animalsDao.findById(animal.getId());
+        assertNotEquals(initialDescription, updatedCategory.getName());
+    }
+
 
 }

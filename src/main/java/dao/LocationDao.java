@@ -12,5 +12,9 @@ public interface LocationDao {
     //CREATE
     void add (Location location);
 
+    //DELETE
+    void deleteById(int id);
     void clearAllLocations();
+    public void update(int id, String newName);
+    public Location findById(int id);
 }

@@ -25,6 +25,14 @@ public class Sql2oLocationDao implements LocationDao {
                     .executeAndFetch(Location.class); //fetch a list
         }
     }
+    @Override
+    public Location findById(int id) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM sightings WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Location.class);
+        }
+    }
 
     @Override
     public void add(Location location) {
@@ -49,6 +57,30 @@ public class Sql2oLocationDao implements LocationDao {
             con.createQuery(sql)
                     .executeUpdate();
         } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
+    @Override
+    public void deleteById(int id) {
+        String sql = "DELETE from sightings WHERE id=:id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+
+    }
+    @Override
+    public void update(int id, String newName){
+        String sql = "UPDATE sightings SET location = :name WHERE id=:id";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("name", newName)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
             System.out.println(ex);
         }
     }

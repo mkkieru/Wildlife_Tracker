@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import models.Animals;
 
@@ -13,7 +13,6 @@ public interface AnimalsDao{
 
     //READ
     Animals findById(int id);
-    List<Animals> getAllTasksByCategory(int categoryId);
 
     //UPDATE
     void update(int id, String name);

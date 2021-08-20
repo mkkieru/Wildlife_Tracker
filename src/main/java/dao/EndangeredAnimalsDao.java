@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import models.EndangeredAnimal;
 
@@ -20,5 +20,5 @@ public interface EndangeredAnimalsDao {
 
     //DELETE
     void deleteById(int id);
-    void clearAllCategories();
+    void clearAllAnimals();
 }

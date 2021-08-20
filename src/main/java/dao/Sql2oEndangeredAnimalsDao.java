@@ -10,7 +10,7 @@ import java.util.List;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
-public class Sql2oEndangeredAnimalsDao implements DAO.EndangeredAnimalsDao {
+public class Sql2oEndangeredAnimalsDao implements EndangeredAnimalsDao {
 
     private final Sql2o sql2o;
 
@@ -25,10 +25,9 @@ public class Sql2oEndangeredAnimalsDao implements DAO.EndangeredAnimalsDao {
                     .executeAndFetch(EndangeredAnimal.class); //fetch a list
         }
     }
-
     @Override
     public void add(EndangeredAnimal EndangeredAnimalToBeAdded) {
-        String sql = "INSERT INTO animals (name,species,status,health,age,locationid) VALUES (:name,:species,:status,:health,:age,:locationId)"; //raw sql
+        String sql = "INSERT INTO animals (name,species,status,health,age,locationid) VALUES (:name,:species,:status,:health,:age,:locationId)";
         try(Connection con = sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
                     .bind(EndangeredAnimalToBeAdded) //map my argument onto the query so we can use information from it
@@ -43,21 +42,49 @@ public class Sql2oEndangeredAnimalsDao implements DAO.EndangeredAnimalsDao {
 
     @Override
     public EndangeredAnimal findById(int id) {
-        return null;
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM animals WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(EndangeredAnimal.class);
+        }
     }
 
     @Override
-    public void update(int id, String name) {
-
+    public void update(int id, String newName){
+        String sql = "UPDATE animals SET name = :name WHERE id=:id";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("name", newName)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override
     public void deleteById(int id) {
+        String sql = "DELETE from animals WHERE id=:id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
 
     }
+
 
     @Override
-    public void clearAllCategories() {
-
+    public void clearAllAnimals() {
+        String sql = "DELETE from animals";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
     }
+
 }
