@@ -24,11 +24,11 @@ public class App {
         staticFileLocation("/public");
         //postgres://zhbxtovcqwapss:750a5c4e892198abadb172a759d02b25e852ba5f50621721a90b449ee494b41d@ec2-54-156-60-12.compute-1.amazonaws.com:5432/dfq8hbhqfn0d1r
 
-        String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
-        Sql2o sql2o = new Sql2o(connectionString, "damark", "password");
+        //String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
+        //Sql2o sql2o = new Sql2o(connectionString, "damark", "password");
 
-        //String connectionString = "jdbc:postgresql://ec2-54-156-60-12.compute-1.amazonaws.com:5432/dfq8hbhqfn0d1r";
-        //Sql2o sql2o = new Sql2o(connectionString, "zhbxtovcqwapss", "750a5c4e892198abadb172a759d02b25e852ba5f50621721a90b449ee494b41d");
+        String connectionString = "jdbc:postgresql://ec2-54-156-60-12.compute-1.amazonaws.com:5432/dfq8hbhqfn0d1r";
+        Sql2o sql2o = new Sql2o(connectionString, "zhbxtovcqwapss", "750a5c4e892198abadb172a759d02b25e852ba5f50621721a90b449ee494b41d");
 
         Sql2oAnimalsDao animalDao = new Sql2oAnimalsDao(sql2o);
         Sql2oEndangeredAnimalsDao endangeredAnimalDao = new Sql2oEndangeredAnimalsDao(sql2o);
