@@ -27,5 +27,4 @@ public class locationTest {
         newLocation.setId(2);
         Assert.assertTrue(2 == newLocation.getId());
     }
-
 }

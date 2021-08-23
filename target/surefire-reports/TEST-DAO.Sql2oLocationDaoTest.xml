@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="DAO.Sql2oLocationDaoTest" time="0.02" errors="2" skipped="0">
+<testsuite tests="2" failures="0" name="DAO.Sql2oLocationDaoTest" time="0.043" errors="2" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.11+9"/>
@@ -32,7 +32,7 @@
     <property name="java.class.version" value="55.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="5.11.0-25-generic"/>
+    <property name="os.version" value="5.11.0-27-generic"/>
     <property name="library.jansi.path" value="/usr/share/maven/lib/jansi-native"/>
     <property name="user.home" value="/home/damark"/>
     <property name="user.timezone" value="Africa/Nairobi"/>
@@ -62,7 +62,7 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="DAO.Sql2oLocationDaoTest" name="addedLocationNamesAreReturnedFromGetAll" time="0.008">
+  <testcase classname="DAO.Sql2oLocationDaoTest" name="addedLocationNamesAreReturnedFromGetAll" time="0.024">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at DAO.Sql2oLocationDaoTest.addedLocationNamesAreReturnedFromGetAll(Sql2oLocationDaoTest.java:58)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -100,7 +100,7 @@
     <system-out>connection established
 </system-out>
   </testcase>
-  <testcase classname="DAO.Sql2oLocationDaoTest" name="addedLocationsAreReturnedFromGetAll" time="0.012">
+  <testcase classname="DAO.Sql2oLocationDaoTest" name="addedLocationsAreReturnedFromGetAll" time="0.019">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at DAO.Sql2oLocationDaoTest.addedLocationsAreReturnedFromGetAll(Sql2oLocationDaoTest.java:52)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

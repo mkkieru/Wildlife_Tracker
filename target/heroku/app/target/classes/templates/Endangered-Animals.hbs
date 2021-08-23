@@ -1,0 +1,32 @@
+{{#partial "content"}}
+    <h1>ENDANGERED ANIMALS </h1>
+    {{#if endangeredAnimal}}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">NAME</th>
+                <th scope="col">SPECIES</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">HEALTH</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each endangeredAnimal }}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{name}}</td>
+                    <td>{{species}}</td>
+                    <!--<td>{{locationId}}</td>-->
+                    <td>Endangered</td>
+                    <td>{{health}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}

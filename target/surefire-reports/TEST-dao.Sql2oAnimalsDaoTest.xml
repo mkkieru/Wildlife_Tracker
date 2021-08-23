@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="dao.Sql2oAnimalsDaoTest" time="6.536" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="dao.Sql2oAnimalsDaoTest" time="10.543" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.11+9"/>
@@ -32,7 +32,7 @@
     <property name="java.class.version" value="55.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="5.11.0-25-generic"/>
+    <property name="os.version" value="5.11.0-27-generic"/>
     <property name="library.jansi.path" value="/usr/share/maven/lib/jansi-native"/>
     <property name="user.home" value="/home/damark"/>
     <property name="user.timezone" value="Africa/Nairobi"/>
@@ -62,10 +62,10 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="dao.Sql2oAnimalsDaoTest" name="deleteByIdDeletesCorrectAnimal" time="1.401"/>
-  <testcase classname="dao.Sql2oAnimalsDaoTest" name="noAnimalsReturnsEmptyList" time="0.062"/>
-  <testcase classname="dao.Sql2oAnimalsDaoTest" name="clearAllAnimalsDeletesAllAnimals" time="2.302"/>
-  <testcase classname="dao.Sql2oAnimalsDaoTest" name="addedAnimalsAreReturnedFromGetAll" time="0.962"/>
-  <testcase classname="dao.Sql2oAnimalsDaoTest" name="updateChangesAnimalsContent" time="0.944"/>
-  <testcase classname="dao.Sql2oAnimalsDaoTest" name="addingAnimalSetsId" time="0.865"/>
+  <testcase classname="dao.Sql2oAnimalsDaoTest" name="deleteByIdDeletesCorrectAnimal" time="1.756"/>
+  <testcase classname="dao.Sql2oAnimalsDaoTest" name="noAnimalsReturnsEmptyList" time="0.05"/>
+  <testcase classname="dao.Sql2oAnimalsDaoTest" name="clearAllAnimalsDeletesAllAnimals" time="3.746"/>
+  <testcase classname="dao.Sql2oAnimalsDaoTest" name="addedAnimalsAreReturnedFromGetAll" time="2.144"/>
+  <testcase classname="dao.Sql2oAnimalsDaoTest" name="updateChangesAnimalsContent" time="1.312"/>
+  <testcase classname="dao.Sql2oAnimalsDaoTest" name="addingAnimalSetsId" time="1.535"/>
 </testsuite>
